@@ -1,5 +1,5 @@
 echo "Testing Embeddings"
-Invoke-WebRequest -Uri http://localhost:8080/v1/embeddings `
+$r = Invoke-WebRequest -Uri http://localhost:8080/v1/embeddings `
     -Method POST `
     -ContentType 'application/json; charset=utf-8' `
     -Body '
@@ -7,6 +7,10 @@ Invoke-WebRequest -Uri http://localhost:8080/v1/embeddings `
         "input": "Test",
         "model": "text-embedding-ada-002"
       }'
+echo $r.RawContent
+
+
+echo `n`n
 
 echo "Testing Chat Completions"
 $r = Invoke-WebRequest -Uri http://localhost:8080/v1/chat/completions `
