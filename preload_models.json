@@ -1,0 +1,26 @@
+[
+    {
+        "url": "github:go-skynet/model-gallery/gpt4all-j.yaml",
+        "name": "gpt-3.5-turbo"
+    },
+    {
+        "url": "github:go-skynet/model-gallery/bert-embeddings.yaml",
+        "name": "text-embedding-ada-002"
+    },
+    {
+        "url": "github:go-skynet/model-gallery/mpt-7b-base.yaml",
+        "name": "mpt-7b-base"
+    },
+    {
+        "url": "github:go-skynet/model-gallery/mpt-7b-chat.yaml",
+        "name": "mpt-7b-chat"
+    },
+    {
+        "url": "github:go-skynet/model-gallery/mpt-7b-instruct.yaml",
+        "name": "mpt-7b-instrut"
+    },
+    {
+        "url": "github:go-skynet/model-gallery/mistral.yaml",
+        "name": "mistral"
+    }
+]

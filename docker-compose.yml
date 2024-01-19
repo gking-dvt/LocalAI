@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  api:
+    container_name: localai
+    image: quay.io/go-skynet/local-ai:v2.5.1-cublas-cuda12-ffmpeg
+    tty: true # enable colorized logs
+    restart: always # should this be on-failure ?
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    volumes:
+      - ./models:/models
+      - ./images/:/tmp/generated/images/
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: ["/usr/bin/local-ai" ]
