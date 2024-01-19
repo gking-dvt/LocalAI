@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "2caf7cff-81de-41e1-97ce-42b6fededdfc",
+		"name": "LocalAI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "130510"
+	},
+	"item": [
+		{
+			"name": "Chat Completions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    //\"model\": \"thebloke__mistral-7b-instruct-v0.1-gguf__mistral-7b-instruct-v0.1.q4_k_m.gguf\",\r\n    \"model\": \"mistral\",\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Who was the first person on the moon?\"\r\n        }\r\n    ],\r\n    \"temperature\": 0.1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/chat/completions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Models - Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"github:go-skynet/model-gallery/base.yaml\",\r\n    \"name\": \"test\",\r\n    \"overrides\": {\r\n        \"parameters\": {\r\n            \"model\": \"mistral-7b-instruct-v0.1.Q4_K_M.gguf\"\r\n        }\r\n    },\r\n    \"files\": [\r\n        {\r\n            \"filename\": \"mistral-7b-instruct-v0.1.Q4_K_M.gguf\",\r\n            \"sha256\": \"\",\r\n            \"uri\": \"https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q4_K_M.gguf\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/models/apply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"models",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Models - Add Embedding",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test-embedding\",\r\n    \"description\": \"test-embedding\",\r\n    \"config_file\": {\r\n        \"backend\": \"sentencetransformers\",\r\n        \"embeddings\": true,\r\n        \"parameters\": {\r\n            \"model\": \"jina-embeddings-v2-base-en\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/models/apply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"models",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Models - List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"github:go-skynet/model-gallery/base.yaml\",\r\n    \"name\": \"test\",\r\n    \"overrides\": {\r\n        \"parameters\": {\r\n            \"model\": \"mistral-7b-instruct-v0.1.Q4_K_M.gguf\"\r\n        }\r\n    },\r\n    \"files\": [\r\n        {\r\n            \"filename\": \"mistral-7b-instruct-v0.1.Q4_K_M.gguf\",\r\n            \"sha256\": \"\",\r\n            \"uri\": \"https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q4_K_M.gguf\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/models",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Embeddings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input\": \"Test\",\r\n    //\"model\": \"text-embedding-ada-002\"\r\n    \"model\": \"test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/embeddings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"embeddings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
