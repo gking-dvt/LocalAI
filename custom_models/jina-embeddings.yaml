@@ -1,0 +1,6 @@
+name: jina-embedding-v2
+backend: transformers
+embeddings: True
+#model_base_name: jinaai/jina-embeddings-v2-base-en
+parameters:
+  model: jinaai/jina-embeddings-v2-base-en

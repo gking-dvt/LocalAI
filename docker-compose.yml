@@ -1,12 +1,12 @@
 version: '3.6'
 
 services:
-  api:
-    container_name: localai
-     # image: quay.io/go-skynet/local-ai:v2.5.1-cublas-cuda12-ffmpeg # With Nvidia GPU
-     image: quay.io/go-skynet/local-ai:v2.5.1-cublas-cuda12-ffmpeg 
+  local-ai:
+    container_name: local-ai
+    image: quay.io/go-skynet/local-ai:v2.6.0-cublas-cuda12-ffmpeg # With Nvidia GPU
+    # image: quay.io/go-skynet/local-ai:latest # Without Nvidia GPU
     tty: true # enable colorized logs
-    restart: always # should this be on-failure ?
+    restart: unless-stopped # should this be on-failure ?
     ports:
       - 8080:8080
     env_file:
