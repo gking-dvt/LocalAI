@@ -1,0 +1,29 @@
+Templates to load LLM models
+
+e.g.:
+```
+curl --location 'http://localhost:8080/models/apply' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "name": "mistral-7b-instruct-v0.1",
+        "files": [
+            {
+                "filename": "mistral-7b-instruct-v0.1.Q4_K_M.gguf",
+                "sha256": "",
+                "uri": "https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q4_K_M.gguf"
+            }
+        ],
+        "overrides": {
+            "context_size": 4096,
+            "f16": true,
+            "gpu_layers": 64,
+            "parameters": {
+                "model": "mistral-7b-instruct-v0.1.Q4_K_M.gguf",
+                "temperature": 0.2,
+                "top_k": 40,
+                "top_p": 0.95
+            }
+        },
+        "url": "github:go-skynet/model-gallery/base.yaml"
+    }'
+```

@@ -1,0 +1,5 @@
+name: bge-base
+embeddings: true
+backend: sentencetransformers
+parameters:
+  model: BAAI/bge-base-en-v1.5

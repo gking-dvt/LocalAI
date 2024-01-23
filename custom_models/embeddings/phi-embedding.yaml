@@ -1,6 +1,5 @@
 name: phi-embedding
-backend: transformers
 embeddings: True
-#model_base_name: jinaai/jina-embeddings-v2-base-en
+backend: transformers
 parameters:
   model: TheBloke/phi-2-GGUF

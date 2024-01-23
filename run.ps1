@@ -1,2 +1,2 @@
 docker compose down
-docker compose up -d --remove-orphans --pull always
+docker compose up --remove-orphans --pull always
