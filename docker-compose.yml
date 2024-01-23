@@ -22,3 +22,13 @@ services:
               count: 1
               capabilities: [gpu]
     command: ["/usr/bin/local-ai" ]
+  jupyter:
+    container_name: jupyter
+    image: jupyter/minimal-notebook:latest
+    ports:
+      - 8888:8888
+    volumes:
+      - ./jupyter:/home/jovyan/work
+    command: ["start-notebook.sh", "--IdentityProvider.token=''"]
+    
+    

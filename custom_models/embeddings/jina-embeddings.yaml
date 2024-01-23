@@ -1,5 +1,0 @@
-name: jina-embedding-v2
-embeddings: True
-backend: transformers
-parameters:
-  model: jinaai/jina-embeddings-v2-base-en

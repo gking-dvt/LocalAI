@@ -1,5 +1,0 @@
-name: phi-embedding
-embeddings: True
-backend: transformers
-parameters:
-  model: TheBloke/phi-2-GGUF
